@@ -43,7 +43,9 @@
                 android:layout_width="139dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="7dp"
+                android:fontFamily="@font/yeon_sung_regular"
                 android:text="TextView"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@+id/cartprice"
                 app:layout_constraintStart_toEndOf="@+id/cartimage"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +55,9 @@
                 android:layout_width="40dp"
                 android:layout_height="26dp"
                 android:layout_marginStart="7dp"
+                android:fontFamily="@font/lato_regular"
                 android:text="TextView"
+                android:textColor="@color/textColour"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cartimage"
                 app:layout_constraintTop_toBottomOf="@+id/cartfoodname" />
