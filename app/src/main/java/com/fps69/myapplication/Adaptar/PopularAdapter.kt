@@ -7,7 +7,8 @@ import com.bumptech.glide.Glide
 import com.fps69.myapplication.RecipeDummyUserData
 import com.fps69.myapplication.databinding.ItemlistpopularBinding
 
-class PopularAdapter(private val productList: List<RecipeDummyUserData>) : RecyclerView.Adapter<PopularAdapter.PopulerViewHolder>() {
+class PopularAdapter(private val productList: List<RecipeDummyUserData>) :
+    RecyclerView.Adapter<PopularAdapter.PopulerViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopulerViewHolder {
