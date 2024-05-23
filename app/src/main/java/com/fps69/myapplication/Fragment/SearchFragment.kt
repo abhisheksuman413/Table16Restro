@@ -1,60 +1,92 @@
 package com.fps69.myapplication.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.fps69.myapplication.R
+import androidx.collection.ArrayMap
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.fps69.myapplication.Adaptar.MenuAdapter
+import com.fps69.myapplication.ApiDummyDataInterface
+import com.fps69.myapplication.DummeyUserData
+import com.fps69.myapplication.RecipeDummyUserData
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+import com.fps69.myapplication.databinding.FragmentSearchBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+
 class SearchFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    lateinit var binding:FragmentSearchBinding
+    lateinit var  Tempadapter:MenuAdapter
+    val bkgg:array
+
+
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+
+        binding= FragmentSearchBinding.inflate(inflater,container,false)
+
+        val TempproductList = InitRetrofil()
+        var name : array
+
+
+
+        for(index in TempproductList){
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SearchFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SearchFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
+    private fun InitRetrofil(): List<RecipeDummyUserData> {
+
+        lateinit var productList: List<RecipeDummyUserData>
+
+        val retrofitBuilder = Retrofit.Builder()
+            .baseUrl("https://dummyjson.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiDummyDataInterface::class.java)
+
+
+        val retrofilData =  retrofitBuilder.getProductData()
+
+        retrofilData.enqueue(object: Callback<DummeyUserData?> {
+            override fun onResponse(p0: Call<DummeyUserData?>, p1: Response<DummeyUserData?>) {
+                // If Api call is success
+                val responseBody =p1.body()
+                 productList = responseBody?.recipes!!
+
             }
+
+            override fun onFailure(p0: Call<DummeyUserData?>, p2: Throwable) {
+                // If API call fails
+                Log.d("main Activity ","Error happen"+ p2.message)
+            }
+
+
+        })
+
+        return productList
+
     }
 }
