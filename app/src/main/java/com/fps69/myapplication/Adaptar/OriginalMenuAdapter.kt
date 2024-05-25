@@ -3,11 +3,12 @@ package com.fps69.myapplication.Adaptar
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.fps69.myapplication.databinding.MenuItemBinding
 
 class OriginalMenuAdapter(private val menuFoodNameOriginal: MutableList<String>,
                           private val menuFoodPriceOriginal: MutableList<String>,
-                          private val menuFoodImageOriginal: MutableList<Int>
+                          private val menuFoodImageOriginal: MutableList<String>
 ):
     RecyclerView.Adapter<OriginalMenuAdapter.OriginalMenuViewHolder>() {
 
@@ -31,7 +32,10 @@ class OriginalMenuAdapter(private val menuFoodNameOriginal: MutableList<String>,
             binding.apply {
                 menufoodname.text=menuFoodNameOriginal[position]
                 menuitemprice.text="$${menuFoodPriceOriginal[position]}"
-                menuImage.setImageResource(menuFoodImageOriginal[position])
+
+                //Using glide dependency kotlin for open image url
+                Glide.with(binding.root).load(menuFoodImageOriginal[position]).into(binding.menuImage)
+
             }
 
 
