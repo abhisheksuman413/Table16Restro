@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Fragment.HistoryFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -23,7 +24,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
-        android:layout_height="103dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
@@ -36,6 +37,22 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/AcceptOrDispatchButton"
+                android:layout_width="75dp"
+                android:layout_height="25dp"
+                android:background="@drawable/addcartbuttonshape"
+                android:elevation="7dp"
+                android:fontFamily="@font/yeon_sung_regular"
+                android:text="Received"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cardView7"
+                app:layout_constraintStart_toStartOf="@+id/cardView7"
+                app:layout_constraintTop_toBottomOf="@+id/cardView7" />
 
             <ImageView
                 android:id="@+id/buyAgainFoodImage"
@@ -79,12 +96,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/buyAgainFoodName" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="32dp"
+                android:id="@+id/cardView7"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="40dp"
                 app:cardBackgroundColor="@color/textColour"
                 app:cardCornerRadius="23dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:cardElevation="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

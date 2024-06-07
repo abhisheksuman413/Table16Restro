@@ -125,7 +125,7 @@ class HomeFragment : Fragment() {
 
         binding.populerrecyclerview.apply {
             layoutManager=LinearLayoutManager(requireContext())
-            adapter=PopularAdapter(productList)
+            adapter=PopularAdapter(productList,requireContext())
         }
 
     }

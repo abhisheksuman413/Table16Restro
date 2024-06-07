@@ -2,4 +2,6 @@
     <string name="app_name">My Application</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_web_clint_id">466327314075-o1fjvm2sfs60rbsh407suvvh161hpuqp.apps.googleusercontent.com</string>
+
 </resources>

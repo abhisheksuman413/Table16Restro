@@ -1,5 +1,6 @@
 package com.fps69.myapplication.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
@@ -13,6 +14,7 @@ import com.fps69.myapplication.Adaptar.CartAdapter
 import com.fps69.myapplication.Adaptar.PopularAdapter
 import com.fps69.myapplication.ApiDummyDataInterface
 import com.fps69.myapplication.DummeyUserData
+import com.fps69.myapplication.PayOutActivity
 import com.fps69.myapplication.R
 import com.fps69.myapplication.RecipeDummyUserData
 import com.fps69.myapplication.databinding.FragmentCartBinding
@@ -39,6 +41,13 @@ class cartFragment() : Fragment() {
 
 
         InitRetrofil()
+
+
+
+        binding.proccedButtonCart.setOnClickListener {
+            val intent =Intent(requireContext(),PayOutActivity::class.java)
+            startActivity(intent)
+        }
 
 
 

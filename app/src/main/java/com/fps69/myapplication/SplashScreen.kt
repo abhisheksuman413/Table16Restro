@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import kotlin.math.roundToLong
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +16,6 @@ class SplashScreen : AppCompatActivity() {
             val intent = Intent(this@SplashScreen,StartActivity::class.java)
             startActivity(intent)
             finish()
-        }, .10000.toLong())
+        },3000)
     }
 }
